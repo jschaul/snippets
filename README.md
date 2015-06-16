@@ -2,14 +2,14 @@
 a collection of useful and useless code snippets
 
 print random string
-```
+```bash
 < /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64};echo;
 # if the above fails:
 openssl rand -base64 64 | tr -dc _A-Z-a-z-0-9 && echo "" # may be less than 64 chars
 ```
 
 delete dead merged git branches
-```
+```bash
 git fetch --all
 git up
 for i in `git branch -a | grep remote | grep -v HEAD`; do git branch --track ${i#remotes/origin/} $i; done

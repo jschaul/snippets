@@ -4,6 +4,8 @@ a collection of useful and useless code snippets
 print random string
 ```
 < /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64};echo;
+# if the above fails:
+openssl rand -base64 64 | tr -dc _A-Z-a-z-0-9 && echo "" # may be less than 64 chars
 ```
 
 delete dead merged git branches

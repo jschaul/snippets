@@ -30,3 +30,7 @@ done
 git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | xargs -n 1 git push --delete origin
 git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | xargs -n 1 git branch -d
 ```
+
+# mac specific things
+
+[mac-specific](mac-specific.md)

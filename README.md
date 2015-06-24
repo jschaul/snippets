@@ -1,14 +1,14 @@
 # snippets
 a collection of useful and useless code snippets
 
-print random string
+## print random string
 ```bash
 < /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64};echo;
 # if the above fails:
 openssl rand -base64 64 | tr -dc _A-Z-a-z-0-9 && echo "" # may be less than 64 chars
 ```
 
-delete dead merged git branches
+## delete dead merged git branches
 ```bash
 git fetch --all
 git up
@@ -31,6 +31,40 @@ git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | xarg
 git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | xargs -n 1 git branch -d
 ```
 
+## 
+
+search for all files with name "pattern" in current working directory 
+
+```
+find . -name "pattern"
+```
+
+```python
+#!/usr/bin/python
+def get_file_names(filename_expression, start_path="."):
+    matches = []
+    for root, dirnames, filenames in os.walk(start_path):
+        for filename in fnmatch.filter(filenames, filename_expression):
+                matches.append(os.path.join(root, filename))
+    return matches
+```
+
+replace strings in text file
+```python
+#!/usr/bin/python
+def replaceValue(file, old, new):
+    newlines = []
+    with open(file,'r') as f:
+        for line in f.readlines():
+            newlines.append(line.replace(old, new))
+
+    with open(file, 'w') as f:
+        for line in newlines:
+            f.write(line)
+```            
+
+
 # mac specific things
 
 [mac-specific](mac-specific.md)
+

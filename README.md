@@ -8,6 +8,12 @@ a collection of useful and useless code snippets
 openssl rand -base64 64 | tr -dc _A-Z-a-z-0-9 && echo "" # may be less than 64 chars
 ```
 
+## prettify json output
+```bash
+cat file.json | python -m json.tool
+```
+
+
 ## delete dead merged git branches
 ```bash
 git fetch --all

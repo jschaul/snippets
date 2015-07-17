@@ -105,6 +105,17 @@ def query_yes_no(question, default="yes"):
                              "(or 'y' or 'n').\n")    
 ```
 
+## find files containing keywordA
+
+place files in text file
+```
+grep -Rl keywordA > keywordA.txt
+```
+search for lines with keywordsB and C in those files:
+```
+grep "keyword B" -- `cat keywordA.txt` | grep keywordC
+```
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

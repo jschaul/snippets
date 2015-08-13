@@ -116,6 +116,15 @@ search for lines with keywordsB and C in those files:
 grep "keyword B" -- `cat keywordA.txt` | grep keywordC
 ```
 
+## tcp dump
+
+see stuff on udp port 514 (e.g. rsyslogd)
+
+```bash
+# execute as root user
+tcpdump -i lo udp port 514 -A  
+```
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

@@ -125,6 +125,23 @@ see stuff on udp port 514 (e.g. rsyslogd)
 tcpdump -i lo udp port 514 -A  
 ```
 
+## jvm java memory leak heap analysis on running server
+
+get java heap histogram
+```
+jmap -histo:live <process_id> > file.txt
+```
+
+full dump
+```
+jmap -dump:format=b,file=dump.hprof  <process_id>
+```
+
+if oracle java: e.g. force garbage collection, see
+```
+jcmd <process_id> help
+```
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

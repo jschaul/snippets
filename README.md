@@ -142,6 +142,10 @@ if oracle java: e.g. force garbage collection, see
 jcmd <process_id> help
 ```
 
+## profile things in python
+
+see [https://docs.python.org/2/library/profile.html](https://docs.python.org/2/library/profile.html)
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

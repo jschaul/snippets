@@ -146,6 +146,10 @@ jcmd <process_id> help
 
 see [https://docs.python.org/2/library/profile.html](https://docs.python.org/2/library/profile.html)
 
+## python build/environment best practices
+
+see [https://moshez.wordpress.com/2016/01/27/learning-python-the-ecosystem/](this)
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

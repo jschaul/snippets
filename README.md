@@ -1,6 +1,26 @@
 # snippets
 a collection of useful and useless code snippets
 
+Table of Contents
+=================
+
+  * [snippets](#snippets)
+    * [print random string](#print-random-string)
+    * [prettify json output](#prettify-json-output)
+    * [delete dead merged git branches](#delete-dead-merged-git-branches)
+    * [search for all files with name "pattern" in current working directory](#search-for-all-files-with-name-pattern-in-current-working-directory)
+    * [replace strings in text file](#replace-strings-in-text-file)
+    * [yes/no prompt](#yesno-prompt)
+    * [find files containing keywordA](#find-files-containing-keyworda)
+    * [tcp dump](#tcp-dump)
+    * [jvm java memory leak heap analysis on running server](#jvm-java-memory-leak-heap-analysis-on-running-server)
+    * [profile things in python](#profile-things-in-python)
+    * [python build/environment best practices](#python-buildenvironment-best-practices)
+  * [mac specific things](#mac-specific-things)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+
+
 ## print random string
 ```bash
 < /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64};echo;

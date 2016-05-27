@@ -170,6 +170,52 @@ see [https://docs.python.org/2/library/profile.html](https://docs.python.org/2/l
 
 see [https://moshez.wordpress.com/2016/01/27/learning-python-the-ecosystem/](this)
 
+
+## bump chef cookbook metadata.rb file
+
+(code taken from: http://blog.backslasher.net/cookbook-versioning.html)
+
+```
+#!/usr/bin/env ruby
+
+target_branch='master'
+has_minor=`git log #{target_branch}.. --grep=BUMP_MINOR`.length > 0
+has_major=`git log #{target_branch}.. --grep=BUMP_MAJOR`.length > 0
+bump_type=if has_major then 'major'
+          elsif has_minor then 'minor'
+          else 'build'
+          end
+
+# Get next version
+split_options=['major','minor','build']
+split_index=split_options.index(bump_type)
+raise 'unknown bump modifier' if split_index.nil?
+metadata_file='./metadata.rb'
+metadata=File.read(metadata_file)
+version_line=metadata.split("\n").select{|s|s[/^\s*version\W/]}.last
+version_regex=/("|')([\d\.]+)("|')/
+version=version_line[version_regex,2]
+v_arr=version.split('.')
+v_arr[split_index]=(v_arr[split_index].to_i+1).to_s
+(split_index+1..v_arr.length-1).each{|a|v_arr[a]=0} # Zero other cells
+new_version=v_arr.join('.')
+
+# Read file
+metadata_file='./metadata.rb'
+metadata=File.read(metadata_file)
+
+# Find version line
+version_regex=/("|')([\d\.]+)("|')/
+version_line=metadata.split("\n").select{|s|s[/^\s*version\W/]}.last
+
+# Generate new one
+new_version_line=version_line.gsub(version_regex,"'#{new_version}'")
+new_metadata=metadata.gsub("\n#{version_line}\n","\n#{new_version_line}\n")
+
+# Write back to file
+File.write(metadata_file,new_metadata)
+```
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

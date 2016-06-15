@@ -16,6 +16,7 @@ Table of Contents
     * [jvm java memory leak heap analysis on running server](#jvm-java-memory-leak-heap-analysis-on-running-server)
     * [profile things in python](#profile-things-in-python)
     * [python build/environment best practices](#python-buildenvironment-best-practices)
+    * [list all crontabs for all users](#list-all-crontabs-for-all-users)
   * [mac specific things](#mac-specific-things)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
@@ -169,6 +170,13 @@ see [https://docs.python.org/2/library/profile.html](https://docs.python.org/2/l
 ## python build/environment best practices
 
 see [https://moshez.wordpress.com/2016/01/27/learning-python-the-ecosystem/](this)
+
+## list all crontabs for all users
+
+```
+for user in $(cut -f1 -d: /etc/passwd); do echo "crons for $user:"; crontab -u $user -l 2>/dev/null | grep -v '^#'; done
+```
+(http://stackoverflow.com/questions/134906/how-do-i-list-all-cron-jobs-for-all-users)
 
 
 ## bump chef cookbook metadata.rb file

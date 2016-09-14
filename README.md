@@ -224,6 +224,15 @@ new_metadata=metadata.gsub("\n#{version_line}\n","\n#{new_version_line}\n")
 File.write(metadata_file,new_metadata)
 ```
 
+# ~/.gitconfig alias
+
+```
+[alias]
+        lg = log --graph --decorate --pretty=format:'%C(blue)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+```
+
+(taken from https://github.com/wmalik/dotfiles)
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

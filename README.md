@@ -233,6 +233,16 @@ File.write(metadata_file,new_metadata)
 
 (taken from https://github.com/wmalik/dotfiles)
 
+# see network statistics
+
+Which program uses how much bandwidth?
+
+```
+sudo nethogs
+```
+
+see http://www.binarytides.com/linux-commands-monitor-network/ for a list of alternatives.
+
 # mac specific things
 
 [mac-specific](mac-specific.md)

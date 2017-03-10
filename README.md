@@ -29,6 +29,14 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 openssl rand -base64 64 | tr -dc _A-Z-a-z-0-9 && echo "" # may be less than 64 chars
 ```
 
+## React by executing something on file change
+
+Install `entr`, then:
+
+```
+find . -name '*.sh' | entr ./my-script.sh
+```
+
 ## prettify json output
 ```bash
 cat file.json | python -m json.tool

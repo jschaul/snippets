@@ -1,0 +1,28 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+  title_font = Sans 10
+  title_use_system_font = False
+[keybindings]
+  copy = <Primary>x
+  group_tab_toggle = <Alt><Super>t
+  next_tab = <Primary><Shift>Right
+  paste = <Primary>v
+  prev_tab = <Primary><Shift>Left
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    custom_command = /usr/bin/zsh
+    font = Monospace 14
+    login_shell = True
+    scrollback_infinite = True
+    use_custom_command = True
+    use_system_font = False

@@ -21,21 +21,22 @@ which makedeb || {
   (git clone https://github.com/wireapp/wire-server && cd wire-server/tools/makedeb && stack install .)
 }
 
+export TARGET_LIB="$HOME/.wire-dev/lib"
+export TARGET_INCLUDE="$HOME/.wire-dev/include"
+mkdir -p "$TARGET_LIB"
+mkdir -p "$TARGET_INCLUDE"
 mkdir -p $HOME/.stack
 cat $HOME/.stack/config.yaml | grep $TARGET_INCLUDE || {
     echo "extra-include-dirs:\n- $TARGET_INCLUDE\nextra-lib-dirs:\n- $TARGET_LIB" >> $HOME/.stack/config.yaml
 }
 
-export TARGET_LIB="$HOME/.wire-dev/lib"
-export TARGET_INCLUDE="$HOME/.wire-dev/include"
-mkdir -p "$TARGET_LIB"
-mkdir -p "$TARGET_INCLUDE"
-# export PKG_CONFIG_PATH=$HOME/.wire-dev/lib/pkgconfig
-# pkg-config --exists libzauth
-
 ! ls $TARGET_INCLUDE/cbox.h || {
     (git clone https://github.com/wireapp/cryptobox-c && cd cryptobox-c && make install)
 }
+
+
+# export PKG_CONFIG_PATH=$HOME/.wire-dev/lib/pkgconfig
+# pkg-config --exists libzauth
 
 ## google version manager
 # bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)

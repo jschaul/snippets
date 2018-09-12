@@ -154,6 +154,12 @@ see stuff on udp port 514 (e.g. rsyslogd)
 tcpdump -i lo udp port 514 -A  
 ```
 
+see tcp stuff on port 25
+
+```
+tcpdump -A -i any 'port 25'
+```
+
 ## jvm java memory leak heap analysis on running server
 
 get java heap histogram
